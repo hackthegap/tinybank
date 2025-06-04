@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./tinybank-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./tinybank-backend:/app
+
+  client:
+    build:
+      context: ./tinybank-client
+    ports:
+      - "5050:5000"
+    volumes:
+      - ./tinybank-client:/app
+    environment:
+      - BACKEND_URL=http://backend:8000/api
+    depends_on:
+      - backend

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Welcome, {{ user.name }}</h2>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Current Balance:</strong> ${{ user.balance }}</p>
+
+  <div class="mt-4">
+    <a class="btn btn-success me-2" href="{{ url_for('deposit') }}">Deposit</a>
+    <a class="btn btn-warning me-2" href="{{ url_for('withdraw') }}">Withdraw</a>
+    <a class="btn btn-secondary me-2" href="{{ url_for('transfer') }}">Transfer</a>
+    <a class="btn btn-info" href="{{ url_for('transactions') }}">View Transactions</a>
+  </div>
+{% endblock %}
