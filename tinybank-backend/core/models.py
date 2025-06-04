@@ -16,5 +16,12 @@ class Transaction (models.Model):
         ('TRANSFER', 'Transfer'),
     ]
 
-    # user.
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='transactions')
+    tx_type = models.CharField(max_length=10, choices=TYPES)
+    amount = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
+    description = models.TextField(blank=True)
+    timestamp = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{tx_type} - {amount}'
 
