@@ -1,4 +1,5 @@
 # Tiny Bank
+
 ## Done by Fabricio + Holly + students of the fullstack-s25
 
 ### From the backoffice folder, run:
@@ -25,3 +26,4 @@ docker-compose up
 - Backend (Django admin): http://localhost:8000/admin
 - Backend (List transactions and users): http://localhost:8000/api/users/
 - Backoffice: http://localhost:5150/transactions
+
