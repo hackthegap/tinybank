@@ -20,3 +20,15 @@ services:
       - BACKEND_URL=http://backend:8000/api
     depends_on:
       - backend
+
+  backoffice:
+    build:
+      context: ./tinybank-backoffice
+    ports:
+      - "5150:5001"
+    volumes:
+      - ./tinybank-backoffice:/app
+    environment:
+      - BACKEND_URL=http://backend:8000/api
+    depends_on:
+      - backend

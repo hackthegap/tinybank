@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Transactions by User</h2>
+<form method="POST" class="mb-3">
+  <label>Select User:</label>
+  <select class="form-select" name="user_id" required>
+    {% for user in users %}
+      <option value="{{ user.id }}">{{ user.email }}</option>
+    {% endfor %}
+  </select>
+  <button class="btn btn-primary mt-2">Filter</button>
+</form>
+
+{% if transactions %}
+<table class="table table-bordered">
+  <thead class="table-light">
+    <tr>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Description</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tx in transactions %}
+    <tr>
+      <td>{{ tx.id }}</td>
+      <td>{{ tx.tx_type }}</td>
+      <td>${{ tx.amount }}</td>
+      <td>{{ tx.description }}</td>
+      <td>{{ tx.timestamp }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}
