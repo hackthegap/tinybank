@@ -20,5 +20,5 @@ docker-compose up
 ```
 
 ### then, open in your browser:
-http://localhost:8000/api/users
-http://localhost:8000/admin
+- http://localhost:8000/api/users
+- http://localhost:8000/admin
